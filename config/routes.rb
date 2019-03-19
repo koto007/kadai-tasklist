@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   
   #get 'tasks/:id/edit', to: 'tasks#edit'
 
-   resources :tasks
+  resources :tasks
 end
