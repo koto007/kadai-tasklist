@@ -7,5 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    
+    add_reference :tasks, :user, forein_key: true
   end
 end

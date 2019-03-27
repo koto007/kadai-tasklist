@@ -27,11 +27,11 @@ def create
     
     if @task.save 
         flash[:success] = 'タスクが正常に投稿されました'
-        redirect_to root_url
+        redirect_to root_path
     else 
         @tasks = current_user.tasks.order('created_at DESC').page(params[:page])
         flash.now[:danger] = 'タスクが投稿されませんでした'
-        render 'toppages/index'
+        render :edit
     end
 end
 
@@ -44,7 +44,7 @@ def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
         flash[:success] = 'タスクは正常に更新されました'
-        redirect_to @task
+        redirect_to root_path
         
     else 
         flash.now[:danger] = 'タスクは更新されませんでした'

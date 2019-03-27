@@ -3,6 +3,7 @@
 
 <%= form_for(task) do |f| %>
 
+<%= render 'layouts/error_message', model: f.object %>
 
 <div class="form-group">
   <%= f.label :status, 'ステータス' %>
@@ -17,15 +18,7 @@
 <button class="btn btn-primary" type="submit">投稿</button>
 
 <% end %>
-  <% if task.errors.any? %>
-    <div id="alert alert-warning">
-      <ul>
-        <% task.errors.full_messages.each do |task| %>
-          <li><%= task %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
   
 </div>
 </div>
